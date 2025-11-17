@@ -1,10 +1,14 @@
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
-import { Trophy, Award, Star } from 'lucide-react';
+import { Trophy, Award, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useState, useRef, useEffect } from 'react';
 
 export function TalentsGallery() {
   const { t } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(1);
+  const sliderRef = useRef(null);
 
   const talents = [
     {
@@ -99,6 +103,37 @@ export function TalentsGallery() {
     },
   ];
 
+  // Calculate cards per view based on screen size
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth >= 1024) {
+        setCardsPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(1);
+      }
+    };
+
+    updateCardsPerView();
+    window.addEventListener('resize', updateCardsPerView);
+    return () => window.removeEventListener('resize', updateCardsPerView);
+  }, []);
+
+  const maxIndex = Math.ceil(talents.length / cardsPerView) - 1;
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <div className="container mx-auto px-4">
       <div className="text-center mb-12">
@@ -111,42 +146,94 @@ export function TalentsGallery() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {talents.map((talent) => (
-          <Card
-            key={talent.id}
-            className="overflow-hidden hover:shadow-xl transition-all duration-300 group border-none"
+      {/* Slider Container */}
+      <div className="relative">
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:bg-gray-50"
+          aria-label="Previous talents"
+        >
+          <ChevronLeft className="w-6 h-6 text-gray-700" />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:bg-gray-50"
+          aria-label="Next talents"
+        >
+          <ChevronRight className="w-6 h-6 text-gray-700" />
+        </button>
+
+        {/* Slider */}
+        <div
+          ref={sliderRef}
+          className="overflow-hidden"
+        >
+          <div
+            className="flex transition-transform duration-500 ease-in-out gap-6"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+            }}
           >
-            <div className={`relative bg-gradient-to-br ${talent.color} h-40 flex items-center justify-center`}>
-              <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
-                {talent.icon}
-              </div>
-              <Badge className="absolute top-4 right-4 bg-white/90 text-gray-900">
-                {talent.year}
-              </Badge>
-              <div className="absolute top-4 left-4">
-                <Trophy className="w-6 h-6 text-white/80" />
-              </div>
-            </div>
+            {talents.map((talent) => (
+              <div
+                key={talent.id}
+                className="flex-shrink-0"
+                style={{ width: `${100 / cardsPerView}%` }}
+              >
+                <Card
+                  className="overflow-hidden hover:shadow-xl transition-all duration-300 group border-none h-full"
+                >
+                  <div className={`relative bg-gradient-to-br ${talent.color} h-40 flex items-center justify-center`}>
+                    <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
+                      {talent.icon}
+                    </div>
+                    <Badge className="absolute top-4 right-4 bg-white/90 text-gray-900">
+                      {talent.year}
+                    </Badge>
+                    <div className="absolute top-4 left-4">
+                      <Trophy className="w-6 h-6 text-white/80" />
+                    </div>
+                  </div>
 
-            <div className="p-6">
-              <div className="flex items-start justify-between mb-2">
-                <h3 className="text-gray-900 flex-1">{talent.name}</h3>
-                <Star className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-              </div>
-              
-              <Badge variant="outline" className="mb-3 text-xs">
-                {talent.category}
-              </Badge>
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="text-gray-900 flex-1">{talent.name}</h3>
+                      <Star className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+                    </div>
+                    
+                    <Badge variant="outline" className="mb-3 text-xs">
+                      {talent.category}
+                    </Badge>
 
-              <p className="text-blue-600 mb-3">{talent.achievement}</p>
-              
-              <p className="text-sm text-gray-600 leading-relaxed">
-                {talent.description}
-              </p>
-            </div>
-          </Card>
-        ))}
+                    <p className="text-blue-600 mb-3">{talent.achievement}</p>
+                    
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {talent.description}
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots Indicator */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? 'bg-orange-500 scale-125'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="mt-12 text-center">
