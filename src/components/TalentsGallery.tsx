@@ -150,21 +150,22 @@ export function TalentsGallery() {
       <div className="relative">
         {/* Navigation Arrows */}
         <button
-          onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:bg-gray-50"
-          aria-label="Previous talents"
-        >
-          <ChevronLeft className="w-6 h-6 text-gray-700" />
-        </button>
+              onClick={prevSlide}
+              style={{ marginTop: "150px" }}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:bg-green-50 border-2 border-gray-300 hover:border-green-500"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-8 h-8 text-gray-800 hover:text-green-700" />
+            </button>
 
-        <button
-          onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:bg-gray-50"
-          aria-label="Next talents"
-        >
-          <ChevronRight className="w-6 h-6 text-gray-700" />
-        </button>
-
+         <button
+              onClick={nextSlide}
+              style={{ marginTop: "150px" }}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:bg-green-50 border-2 border-gray-300 hover:border-green-500"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-8 h-8 text-gray-800 hover:text-green-700" />
+            </button>
         {/* Slider */}
         <div
           ref={sliderRef}

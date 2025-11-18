@@ -249,6 +249,7 @@ export function SchemesGallery() {
           {totalSlides > 1 && (
             <button
               onClick={prevSlide}
+              style={{ marginTop: "150px" }}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:bg-green-50 border-2 border-gray-300 hover:border-green-500"
               aria-label="Previous slide"
             >
@@ -304,6 +305,7 @@ export function SchemesGallery() {
           {totalSlides > 1 && (
             <button
               onClick={nextSlide}
+              style={{ marginTop: "150px" }}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:bg-green-50 border-2 border-gray-300 hover:border-green-500"
               aria-label="Next slide"
             >
