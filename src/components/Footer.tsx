@@ -148,7 +148,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
-                https://www.configserverllp.com/
+                    Config Server LLP
               </a>
             </p>
             <div className="flex gap-6 text-sm">
