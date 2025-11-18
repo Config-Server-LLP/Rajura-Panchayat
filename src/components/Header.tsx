@@ -77,7 +77,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg">
               <img
-                src="src\components\images\BDO.ico"
+                src="src\components\images\download.ico"
                 alt="Maharashtra Government Logo"
                 className="w-full h-full object-cover"
               />

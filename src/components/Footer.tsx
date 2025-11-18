@@ -24,50 +24,55 @@ export function Footer({ onNavigate }: FooterProps) {
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-      {/* Top Bar with National Colors */}
+      {/* Top Bar */}
       <div className="h-1 bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          
           {/* About Section */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center">
-                <span className="text-2xl">🏛️</span>
+              {/* Updated Logo Here */}
+              <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg">
+                <img
+                  src="src/components/images/download.ico"
+                  alt="Maharashtra Government Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
+
               <div>
                 <h3 className="text-white">{t.header.title}</h3>
               </div>
             </div>
+
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               {t.footer.description}
             </p>
+
             <div className="flex gap-3">
               <a
                 href="#"
                 className="w-9 h-9 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a
                 href="#"
                 className="w-9 h-9 bg-gray-700 hover:bg-blue-400 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Twitter"
               >
                 <Twitter className="w-4 h-4" />
               </a>
               <a
                 href="#"
                 className="w-9 h-9 bg-gray-700 hover:bg-pink-600 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="#"
                 className="w-9 h-9 bg-gray-700 hover:bg-red-600 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Youtube"
               >
                 <Youtube className="w-4 h-4" />
               </a>
@@ -137,9 +142,9 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm text-center md:text-left">
               {t.footer.copyright}{' '}
-              <a 
-                href="https://www.configserverllp.com/" 
-                target="_blank" 
+              <a
+                href="https://www.configserverllp.com/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
@@ -161,7 +166,7 @@ export function Footer({ onNavigate }: FooterProps) {
         </div>
       </div>
 
-      {/* National Emblem Disclaimer */}
+      {/* Disclaimer */}
       <div className="bg-gray-950 py-3">
         <div className="container mx-auto px-4">
           <p className="text-gray-500 text-xs text-center">
