@@ -475,7 +475,7 @@ export function SchemesGallery() {
                 <p className="text-sm text-gray-600 line-clamp-2">{scheme.description}</p>
                 <div className="mt-4">
                   <span className="text-sm text-green-600 group-hover:underline">
-                    {scheme.externalLink ? 'Visit Website →' : `${t.schemes.viewDetails} →`}
+                    {`${t.schemes.viewDetails} →`}
                   </span>
                 </div>
               </div>

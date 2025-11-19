@@ -102,6 +102,7 @@ export const translations = {
       title: 'Government Schemes',
       description: 'Explore various welfare schemes and development programs designed to empower and uplift our communities.',
       viewDetails: 'View Details',
+      visitWebsite: 'Visit Website →', // Added this line
       keyBenefits: 'Key Benefits',
       eligibility: 'Eligibility Criteria',
       moreInfo: 'For more information and application process, please visit your nearest Panchayat office or contact our helpline.',
@@ -328,6 +329,7 @@ export const translations = {
       title: 'सरकारी योजना',
       description: 'आमच्या समुदायांना सशक्त आणि उन्नत करण्यासाठी डिझाइन केलेल्या विविध कल्याणकारी योजना आणि विकास कार्यक्रम शोधा.',
       viewDetails: 'तपशील पहा',
+      //visitWebsite: 'वेबसाइटला भेट द्या →', // Added this line
       keyBenefits: 'मुख्य फायदे',
       eligibility: 'पात्रता निकष',
       moreInfo: 'अधिक माहिती आणि अर्ज प्रक्रियेसाठी, कृपया आपल्या जवळच्या पंचायत कार्यालयात भेट द्या किंवा आमच्या हेल्पलाइनवर संपर्क साधा.',
