@@ -83,6 +83,7 @@ export const translations = {
         education: 'Education Coordinator',
         finance: 'Finance Officer',
         health: 'Health Supervisor',
+        planning: 'Planning Officer',
       },
       departments: {
         administration: 'Administration',
@@ -93,6 +94,7 @@ export const translations = {
         education: 'Education',
         finance: 'Finance',
         health: 'Health',
+        planning: 'Planning',
       },
     },
     
@@ -102,7 +104,7 @@ export const translations = {
       title: 'Government Schemes',
       description: 'Explore various welfare schemes and development programs designed to empower and uplift our communities.',
       viewDetails: 'View Details',
-      visitWebsite: 'Visit Website →', // Added this line
+      visitWebsite: 'Visit Website →',
       keyBenefits: 'Key Benefits',
       eligibility: 'Eligibility Criteria',
       moreInfo: 'For more information and application process, please visit your nearest Panchayat office or contact our helpline.',
@@ -119,7 +121,7 @@ export const translations = {
     // Talents
     talents: {
       badge: 'Celebrating Excellence',
-      title: 'Recent Talents ',
+      title: 'Recent Talents',
       description: 'Honoring the exceptional achievements of talented individuals from our community who have made us proud through their remarkable accomplishments.',
       nominate: {
         title: 'Awarded Talent',
@@ -310,6 +312,7 @@ export const translations = {
         education: 'शिक्षण समन्वयक',
         finance: 'वित्त अधिकारी',
         health: 'आरोग्य पर्यवेक्षक',
+        planning: 'नियोजन अधिकारी',
       },
       departments: {
         administration: 'प्रशासन',
@@ -320,6 +323,7 @@ export const translations = {
         education: 'शिक्षण',
         finance: 'वित्त',
         health: 'आरोग्य',
+        planning: 'नियोजन',
       },
     },
     
@@ -329,7 +333,7 @@ export const translations = {
       title: 'सरकारी योजना',
       description: 'आमच्या समुदायांना सशक्त आणि उन्नत करण्यासाठी डिझाइन केलेल्या विविध कल्याणकारी योजना आणि विकास कार्यक्रम शोधा.',
       viewDetails: 'तपशील पहा',
-      //visitWebsite: 'वेबसाइटला भेट द्या →', // Added this line
+      visitWebsite: 'वेबसाइटला भेट द्या →',
       keyBenefits: 'मुख्य फायदे',
       eligibility: 'पात्रता निकष',
       moreInfo: 'अधिक माहिती आणि अर्ज प्रक्रियेसाठी, कृपया आपल्या जवळच्या पंचायत कार्यालयात भेट द्या किंवा आमच्या हेल्पलाइनवर संपर्क साधा.',
@@ -346,10 +350,10 @@ export const translations = {
     // Talents
     talents: {
       badge: 'उत्कृष्टता साजरी करत आहोत',
-      title: 'अलीकडील प्रतिभा गॅलरी',
+      title: 'अलीकडील प्रतिभा',
       description: 'आमच्या समुदायातील प्रतिभावान व्यक्तींच्या अपवादात्मक कामगिरीचा सन्मान करत आहोत ज्यांनी त्यांच्या उल्लेखनीय कामगिरीद्वारे आम्हाला अभिमान वाटला आहे.',
       nominate: {
-        title: 'प्रतिभेचे नामांकन करा',
+        title: 'पुरस्कृत प्रतिभा',
         description: 'एखाद्या अपवादात्मक व्यक्तीला ओळखता? त्यांच्या कामगिरीची ओळख आणि उत्सव साजरा करण्यास आम्हाला मदत करा.',
       },
       categories: {

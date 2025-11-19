@@ -14,111 +14,165 @@ export function EmployeesGallery() {
   const employees = [
     {
       id: 1,
-      name: 'Rajesh Kumar Singh',
+      name: t.language === 'mr' ? 'राजेश कुमार सिंह' : 'Rajesh Kumar Singh',
       designation: t.employees.designations.bdo,
       department: t.employees.departments.administration,
       email: 'bdo.rajeshkumar@panchayatsamiti.gov.in',
       phone: '+91 98765 43210',
       image: 'images/employee1.jpg',
-      description: 'Responsible for overall administration and development of the block. Oversees implementation of all government schemes and ensures coordination between different departments.',
-      experience: '15 years in rural development',
-      qualifications: 'M.A. in Public Administration, Diploma in Rural Development'
+      description: t.language === 'mr' 
+        ? 'ब्लॉकच्या एकूण प्रशासन आणि विकासासाठी जबाबदार. सर्व सरकारी योजनांच्या अंमलबजावणीवर देखरेख करतो आणि विविध विभागांमधील समन्वय सुनिश्चित करतो.'
+        : 'Responsible for overall administration and development of the block. Oversees implementation of all government schemes and ensures coordination between different departments.',
+      experience: t.language === 'mr' 
+        ? 'ग्रामीण विकासात 15 वर्षे अनुभव'
+        : '15 years in rural development',
+      qualifications: t.language === 'mr'
+        ? 'पब्लिक अॅडमिनिस्ट्रेशनमध्ये एम.ए., ग्रामीण विकासात डिप्लोमा'
+        : 'M.A. in Public Administration, Diploma in Rural Development'
     },
     {
       id: 2,
-      name: 'Priya Sharma Patel',
+      name: t.language === 'mr' ? 'प्रिया शर्मा पटेल' : 'Priya Sharma Patel',
       designation: t.employees.designations.secretary,
       department: t.employees.departments.documentation,
       email: 'secretary.priyasharma@panchayatsamiti.gov.in',
       phone: '+91 98765 43211',
       image: 'images/employee2.jpg',
-      description: 'Manages all official documentation, records maintenance, and administrative correspondence. Ensures proper documentation of meetings and decisions.',
-      experience: '12 years in administrative services',
-      qualifications: 'B.Com, LLB, Diploma in Office Management'
+      description: t.language === 'mr'
+        ? 'सर्व अधिकृत दस्तऐवजीकरण, रेकॉर्ड देखभाल आणि प्रशासकीय पत्रव्यवहार व्यवस्थापित करते. बैठक आणि निर्णयांचे योग्य दस्तऐवजीकरण सुनिश्चित करते.'
+        : 'Manages all official documentation, records maintenance, and administrative correspondence. Ensures proper documentation of meetings and decisions.',
+      experience: t.language === 'mr'
+        ? 'प्रशासकीय सेवांमध्ये 12 वर्षे अनुभव'
+        : '12 years in administrative services',
+      qualifications: t.language === 'mr'
+        ? 'बी.कॉम, एलएलबी, ऑफिस मॅनेजमेंटमध्ये डिप्लोमा'
+        : 'B.Com, LLB, Diploma in Office Management'
     },
     {
       id: 3,
-      name: 'Amit Kumar Verma',
+      name: t.language === 'mr' ? 'अमित कुमार वर्मा' : 'Amit Kumar Verma',
       designation: t.employees.designations.agriculture,
       department: t.employees.departments.agriculture,
       email: 'agriculture.amitverma@panchayatsamiti.gov.in',
       phone: '+91 98765 43212',
       image: 'images/employee3.jpg',
-      description: 'Provides technical guidance to farmers, implements agricultural schemes, and promotes modern farming techniques. Conducts training programs for farmers.',
-      experience: '10 years in agricultural extension',
-      qualifications: 'B.Sc. Agriculture, M.Sc. Agronomy'
+      description: t.language === 'mr'
+        ? 'शेतकऱ्यांना तांत्रिक मार्गदर्शन प्रदान करतो, कृषी योजना लागू करतो आणि आधुनिक शेती तंत्रज्ञानाला प्रोत्साहन देतो. शेतकऱ्यांसाठी प्रशिक्षण कार्यक्रम आयोजित करतो.'
+        : 'Provides technical guidance to farmers, implements agricultural schemes, and promotes modern farming techniques. Conducts training programs for farmers.',
+      experience: t.language === 'mr'
+        ? 'कृषी विस्तार सेवेत 10 वर्षे अनुभव'
+        : '10 years in agricultural extension',
+      qualifications: t.language === 'mr'
+        ? 'बी.एससी. कृषी, एम.एससी. कृषिशास्त्र'
+        : 'B.Sc. Agriculture, M.Sc. Agronomy'
     },
     {
       id: 4,
-      name: 'Sumit Laxman Devi',
+      name: t.language === 'mr' ? 'सुमित लक्ष्मण देवी' : 'Sumit Laxman Devi',
       designation: t.employees.designations.welfare,
       department: t.employees.departments.welfare,
       email: 'welfare.sumitdevi@panchayatsamiti.gov.in',
       phone: '+91 98765 43213',
       image: 'images/employee4.jpeg',
-      description: 'Implements social welfare schemes for marginalized communities. Works towards empowerment of women and children through various government programs.',
-      experience: '8 years in social work',
-      qualifications: 'MSW, Diploma in Child Development'
+      description: t.language === 'mr'
+        ? 'दुर्बल घटकांसाठी सामाजिक कल्याण योजना लागू करतो. विविध सरकारी कार्यक्रमांद्वारे महिला आणि मुलांच्या सक्षमीकरणासाठी काम करतो.'
+        : 'Implements social welfare schemes for marginalized communities. Works towards empowerment of women and children through various government programs.',
+      experience: t.language === 'mr'
+        ? 'सामाजिक कार्यात 8 वर्षे अनुभव'
+        : '8 years in social work',
+      qualifications: t.language === 'mr'
+        ? 'एमएसडब्ल्यू, बाल विकासात डिप्लोमा'
+        : 'MSW, Diploma in Child Development'
     },
     {
       id: 5,
-      name: 'Vikram Jayant Patel',
+      name: t.language === 'mr' ? 'विक्रम जयंत पटेल' : 'Vikram Jayant Patel',
       designation: t.employees.designations.engineering,
       department: t.employees.departments.infrastructure,
       email: 'engineering.vikrampatel@panchayatsamiti.gov.in',
       phone: '+91 98765 43214',
       image: 'images/employee5.jpeg',
-      description: 'Oversees construction and maintenance of rural infrastructure projects including roads, buildings, and water supply systems.',
-      experience: '14 years in civil engineering',
-      qualifications: 'B.E. Civil Engineering, PGD in Project Management'
+      description: t.language === 'mr'
+        ? 'रस्ते, इमारती आणि पाणीपुरवठा प्रणालींसह ग्रामीण पायाभूत सुविधा प्रकल्पांच्या बांधकाम आणि देखभालीवर देखरेख करतो.'
+        : 'Oversees construction and maintenance of rural infrastructure projects including roads, buildings, and water supply systems.',
+      experience: t.language === 'mr'
+        ? 'सिव्हिल अभियांत्रिकीत 14 वर्षे अनुभव'
+        : '14 years in civil engineering',
+      qualifications: t.language === 'mr'
+        ? 'बी.ई. सिव्हिल इंजिनिअरिंग, प्रकल्प व्यवस्थापनात पीजीडी'
+        : 'B.E. Civil Engineering, PGD in Project Management'
     },
     {
       id: 6,
-      name: 'Ankit Rajendra Desai',
+      name: t.language === 'mr' ? 'अंकित राजेंद्र देशमुख' : 'Ankit Rajendra Desai',
       designation: t.employees.designations.education,
       department: t.employees.departments.education,
       email: 'education.ankitdesai@panchayatsamiti.gov.in',
       phone: '+91 98765 43215',
       image: 'images/employee6.jpeg',
-      description: 'Coordinates educational programs, monitors school infrastructure, and implements scholarship schemes for students from rural areas.',
-      experience: '9 years in educational administration',
-      qualifications: 'M.A. Education, B.Ed.'
+      description: t.language === 'mr'
+        ? 'शैक्षणिक कार्यक्रमांचे समन्वयन करतो, शाळा पायाभूत सुविधांचे निरीक्षण करतो आणि ग्रामीण भागातील विद्यार्थ्यांसाठी शिष्यवृत्ती योजना लागू करतो.'
+        : 'Coordinates educational programs, monitors school infrastructure, and implements scholarship schemes for students from rural areas.',
+      experience: t.language === 'mr'
+        ? 'शैक्षणिक प्रशासनात 9 वर्षे अनुभव'
+        : '9 years in educational administration',
+      qualifications: t.language === 'mr'
+        ? 'एम.ए. एज्युकेशन, बी.एड.'
+        : 'M.A. Education, B.Ed.'
     },
     {
       id: 7,
-      name: 'Manavi Sunil Gupta',
+      name: t.language === 'mr' ? 'मानवी सुनील गुप्ता' : 'Manavi Sunil Gupta',
       designation: t.employees.designations.finance,
       department: t.employees.departments.finance,
       email: 'finance.manavigupta@panchayatsamiti.gov.in',
       phone: '+91 98765 43216',
       image: 'images/employee7.jpeg',
-      description: 'Manages financial operations, budgeting, and accounts of the Panchayat Samiti. Ensures proper utilization of funds and maintains financial records.',
-      experience: '11 years in financial management',
-      qualifications: 'M.Com, CA Inter, Diploma in Financial Management'
+      description: t.language === 'mr'
+        ? 'पंचायत समितीची आर्थिक कार्ये, अर्थसंकल्प आणि खाती व्यवस्थापित करते. निधीचा योग्य वापर सुनिश्चित करते आणि आर्थिक रेकॉर्ड राखते.'
+        : 'Manages financial operations, budgeting, and accounts of the Panchayat Samiti. Ensures proper utilization of funds and maintains financial records.',
+      experience: t.language === 'mr'
+        ? 'आर्थिक व्यवस्थापनात 11 वर्षे अनुभव'
+        : '11 years in financial management',
+      qualifications: t.language === 'mr'
+        ? 'एम.कॉम, सीए इंटर, आर्थिक व्यवस्थापनात डिप्लोमा'
+        : 'M.Com, CA Inter, Diploma in Financial Management'
     },
     {
       id: 8,
-      name: 'Kavita Suresh Reddy',
+      name: t.language === 'mr' ? 'कविता सुरेश रेड्डी' : 'Kavita Suresh Reddy',
       designation: t.employees.designations.health,
       department: t.employees.departments.health,
       email: 'health.kavitareddy@panchayatsamiti.gov.in',
       phone: '+91 98765 43217',
       image: 'images/employee8.jpeg',
-      description: 'Coordinates healthcare services, immunization programs, and health awareness campaigns. Monitors functioning of primary health centers.',
-      experience: '7 years in public health',
-      qualifications: 'B.Sc. Nursing, MPH'
+      description: t.language === 'mr'
+        ? 'आरोग्यसेवा, लसीकरण कार्यक्रम आणि आरोग्य जागरूकता मोहिमांचे समन्वयन करते. प्राथमिक आरोग्य केंद्रांच्या कार्यप्रणालीवर देखरेख करते.'
+        : 'Coordinates healthcare services, immunization programs, and health awareness campaigns. Monitors functioning of primary health centers.',
+      experience: t.language === 'mr'
+        ? 'सार्वजनिक आरोग्यात 7 वर्षे अनुभव'
+        : '7 years in public health',
+      qualifications: t.language === 'mr'
+        ? 'बी.एससी. नर्सिंग, एमपीएच'
+        : 'B.Sc. Nursing, MPH'
     },
     {
       id: 9,
-      name: 'Sanjay Ramesh Mehta',
+      name: t.language === 'mr' ? 'संजय रमेश मेहता' : 'Sanjay Ramesh Mehta',
       designation: t.employees.designations.planning,
       department: t.employees.departments.planning,
       email: 'planning.sanjaymehta@panchayatsamiti.gov.in',
       phone: '+91 98765 43218',
       image: 'images/employee9.jpeg',
-      description: 'Responsible for planning and monitoring of development projects. Prepares annual plans and coordinates with various departments for project implementation.',
-      experience: '13 years in development planning',
-      qualifications: 'M.A. Economics, PGD in Rural Planning'
+      description: t.language === 'mr'
+        ? 'विकास प्रकल्पांच्या नियोजन आणि मॉनिटरिंगसाठी जबाबदार. वार्षिक योजना तयार करतो आणि प्रकल्प अंमलबजावणीसाठी विविध विभागांशी समन्वय साधतो.'
+        : 'Responsible for planning and monitoring of development projects. Prepares annual plans and coordinates with various departments for project implementation.',
+      experience: t.language === 'mr'
+        ? 'विकास नियोजनात 13 वर्षे अनुभव'
+        : '13 years in development planning',
+      qualifications: t.language === 'mr'
+        ? 'एम.ए. अर्थशास्त्र, ग्रामीण नियोजनात पीजीडी'
+        : 'M.A. Economics, PGD in Rural Planning'
     },
   ];
 
@@ -176,7 +230,7 @@ export function EmployeesGallery() {
               onClick={prevSlide}
               style={{ marginTop: "150px" }}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:bg-green-50 border-2 border-gray-300 hover:border-green-500"
-              aria-label="Previous slide"
+              aria-label={t.language === 'mr' ? 'मागील स्लाइड' : 'Previous slide'}
             >
               <ChevronLeft className="w-8 h-8 text-gray-800 hover:text-green-700" />
             </button>
@@ -220,7 +274,7 @@ export function EmployeesGallery() {
                       onClick={() => openEmployeeModal(employee)}
                       className="text-blue-600 hover:text-blue-800 text-sm font-medium mt-2 inline-flex items-center gap-1"
                     >
-                      Read More
+                      {t.language === 'mr' ? 'अधिक वाचा' : 'Read More'}
                       <Info className="w-3 h-3" />
                     </button>
                   )}
@@ -247,7 +301,7 @@ export function EmployeesGallery() {
               onClick={nextSlide}
               style={{ marginTop: "150px" }}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:bg-green-50 border-2 border-gray-300 hover:border-green-500"
-              aria-label="Next slide"
+              aria-label={t.language === 'mr' ? 'पुढील स्लाइड' : 'Next slide'}
             >
               <ChevronRight className="w-8 h-8 text-gray-800 hover:text-green-700" />
             </button>
@@ -266,7 +320,7 @@ export function EmployeesGallery() {
                     ? 'bg-blue-600' 
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={t.language === 'mr' ? `स्लाइड ${index + 1} वर जा` : `Go to slide ${index + 1}`}
               />
             ))}
           </div>
@@ -317,11 +371,15 @@ export function EmployeesGallery() {
                   
                   <div className="space-y-3">
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Experience</h4>
+                      <h4 className="font-semibold text-gray-900 mb-1">
+                        {t.language === 'mr' ? 'अनुभव' : 'Experience'}
+                      </h4>
                       <p className="text-gray-700">{selectedEmployee.experience}</p>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Qualifications</h4>
+                      <h4 className="font-semibold text-gray-900 mb-1">
+                        {t.language === 'mr' ? 'पात्रता' : 'Qualifications'}
+                      </h4>
                       <p className="text-gray-700">{selectedEmployee.qualifications}</p>
                     </div>
                   </div>
@@ -329,26 +387,34 @@ export function EmployeesGallery() {
               </div>
 
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-2">Role Description</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  {t.language === 'mr' ? 'कार्याचे वर्णन' : 'Role Description'}
+                </h4>
                 <p className="text-gray-700 leading-relaxed">
                   {selectedEmployee.description}
                 </p>
               </div>
 
               <div className="border-t pt-6">
-                <h4 className="font-semibold text-gray-900 mb-4">Contact Information</h4>
+                <h4 className="font-semibold text-gray-900 mb-4">
+                  {t.language === 'mr' ? 'संपर्क माहिती' : 'Contact Information'}
+                </h4>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-blue-600 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-gray-600">Email</p>
+                      <p className="text-sm text-gray-600">
+                        {t.language === 'mr' ? 'ईमेल' : 'Email'}
+                      </p>
                       <p className="text-gray-900">{selectedEmployee.email}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-blue-600 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-gray-600">Phone</p>
+                      <p className="text-sm text-gray-600">
+                        {t.language === 'mr' ? 'फोन' : 'Phone'}
+                      </p>
                       <p className="text-gray-900">{selectedEmployee.phone}</p>
                     </div>
                   </div>
@@ -363,7 +429,7 @@ export function EmployeesGallery() {
                   onClick={closeEmployeeModal}
                   className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
                 >
-                  Close
+                  {t.language === 'mr' ? 'बंद करा' : 'Close'}
                 </button>
               </div>
             </div>
