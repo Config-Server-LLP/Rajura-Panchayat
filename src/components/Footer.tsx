@@ -137,20 +137,17 @@ export function Footer({ onNavigate }: FooterProps) {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* 🔥 UPDATED: Bottom Bar - Completely restructured for centered copyright */}
         <div className="pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              {t.footer.copyright}{' '}
-              <a
-                href="https://www.configserverllp.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                    Config Server LLP
-              </a>
+          {/* 🔥 UPDATED: Copyright line - Now properly centered above the line */}
+          <div className="text-center mb-6">
+            <p className="text-gray-400 text-sm">
+              {t.footer.copyright}
             </p>
+          </div>
+          
+          {/* 🔥 UPDATED: Links section - Now properly centered below the copyright */}
+          <div className="flex justify-center">
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 {t.footer.links.privacy}
