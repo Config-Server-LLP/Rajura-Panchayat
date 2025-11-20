@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useState } from 'react';
 
 export function About() {
-  const { t, currentLanguage } = useLanguage();
+  const { t, language: currentLanguage } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const features = [
@@ -30,7 +30,7 @@ export function About() {
     },
   ];
 
-  // UPDATED MODAL CONTENT FOR RAJURA – ENGLISH & MARATHI
+  // MODAL CONTENT FOR RAJURA – ENGLISH & MARATHI
   const extendedContent = {
     en: [
       {
@@ -78,7 +78,7 @@ export function About() {
     ]
   };
 
-  const modalContent = extendedContent[currentLanguage] || extendedContent.en;
+  const modalContent = currentLanguage === "mr" ? extendedContent.mr : extendedContent.en;
 
   return (
     <div className="container mx-auto px-4">

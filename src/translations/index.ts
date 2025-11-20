@@ -314,6 +314,7 @@ export const translations = {
       },
     },
     
+    
     // Employees
     employees: {
       badge: 'आमचा संघ',
@@ -471,5 +472,6 @@ export const translations = {
       copyright: 'प्रताधिकार @2025 PSPARSEONI | डिझाइन आणि विकास कॉन्फिग सर्व्हर एलएलपी द्वारे',
       disclaimer: 'ही सरकारी वेबसाइट आहे. सामग्री संबंधित विभागांद्वारे मालकीची आणि राखलेली आहे.',
     },
+    
   },
 };
