@@ -1,5 +1,5 @@
 import { Card } from "./ui/card";
-import { Award, ChevronLeft, ChevronRight, Info } from "lucide-react";
+import { Award, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useState } from "react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -7,209 +7,158 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 export function TalentsGallery() {
   const { t, language } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedTalent, setSelectedTalent] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // English version of talents data
   const talentsEn = [
     {
       id: 1,
-      name: "General Administration Department",
+      name: "Administration Department",
       image: "images/card1.jpg",
       officers: [
-        "Block Development Officer (BDO)",
-        "Assistant Administration Officer",
-        "Junior Administration Officer",
-        "Extension Officer Health",
-        "Extension Officer Statistics",
-        "Staff appointment, transfer, and training",
-        "Coordination of all departments",
-        "Registration and report preparation",
-        "Meeting organization and proceedings"
+        "Shri. Chandrashekhar Patil (Asst. Administration Officer)",
+        "Shri. Anilkumar Madavi (Junior Administration Officer)",
+        "Shri. Jitendra Ankar (Extension Officer Health)",
+        "Shri. Sanjay Thakur (Extension Officer Statistics)",
+        "Shri. Amol Idpachi (Senior Assistant)",
+        "Shri. Abhay Madankar (Junior Assistant)",
+        "Shri. Sachin Chavan (Junior Assistant)",
+        "Smt. Rajashree Hemke (Junior Assistant)",
+        "Shri. Bhushan Chawaria (Junior Assistant)",
+        "Shri. Vijay Sahare (Attendant)",
+        "Smt. Alka Varkhade (Attendant)",
       ],
-      description: "Overall administrative management of Panchayat Samiti, staff control, and office operations management. Responsible for coordinating all departments and ensuring smooth functioning of the Panchayat Samiti office in Rajura.",
+      description: "Responsible for overall administration and management of the Panchayat Samiti office operations and staff coordination. Handles official correspondence, record-keeping, and ensures smooth functioning of all departments in Rajura Panchayat Samiti.",
     },
     {
       id: 2,
-      name: "Education Department",
+      name: "Accounts Department",
       image: "images/card2.jpg",
       officers: [
-        "Education Coordinator",
-        "School Supervisor",
-        "Extension Officer Education",
-        "Primary and secondary education schemes",
-        "School infrastructure monitoring",
-        "Teacher training programs",
-        "Scholarship schemes for students"
+        "Shri. Vijay Rathod (Asst. Accounts Officer)",
+        "Smt. Sonali Dudhmogre (Junior Accounts Officer)",
+        "Shri. Shrikant Tungidwar (Senior Assistant)",
+        "Shri. Chandrashekhar Padam (Junior Assistant)",
       ],
-      description: "Implementation of educational programs in rural areas and supervision of school infrastructure. Manages mid-day meal schemes, student enrollment, and educational development in Rajura villages.",
+      description: "Manages financial transactions, budgeting, and accounting operations for all Panchayat Samiti activities. Responsible for fund allocation, financial reporting, and internal auditing of Rajura Panchayat Samiti finances.",
     },
     {
       id: 3,
-      name: "Accounts Department",
+      name: "Panchayat Department",
       image: "images/card3.jpg",
       officers: [
-       "Finance Officer",
-        "Assistant Accounts Officer",
-        "Junior Accounts Officer",
-        "Senior Assistant",
-        "Annual budget preparation",
-        "Fund allocation and accounting",
-        "Financial report preparation",
-        "Audit and inspection"
+        "Shri. Prabhakar Wagh (Extension Officer Panchayat)",
+        "Shri. Yashwant Likhar (Extension Officer Panchayat)",
+        "Shri. Prashant Mandape (Senior Assistant)",
+        "Shri. Rajendra Bhongle (Junior Assistant)",
+        "Shri. Dinesh Jibhe (Junior Assistant)",
+        "Shri. Saurabh Paunikar (Taluka Manager ASSK)",
+        "Shri. Sumedhkumar Gajbhiye (Taluka Manager RGSA)",
+        "Shri. Ajay Gajbhiye (Asst. Accountant)",
+        "Shri. Abhay Vasanik (Technical Assistant)",
       ],
-      description: "Financial management of Panchayat Samiti including budgeting, fund allocation and accounting. Handles all financial transactions and maintains records for Rajura Panchayat Samiti activities.",
+      description: "Coordinates with village panchayats and implements various rural development programs and schemes. Provides guidance and training to Gram Panchayats under Rajura jurisdiction for effective local governance.",
     },
     {
       id: 4,
-      name: "Panchayat Department",
+      name: "Construction Department",
       image: "images/card4.jpg",
       officers: [
-        "Extension Officer Panchayat",
-        "Senior Assistant",
-        "Junior Assistant",
-        "Taluka Manager",
-         "Monitoring Gram Panchayat operations",
-        "Panchayati Raj system implementation",
-        "Gram Sabha and committee meetings",
-        "Local government institution training"
+        "Shri. Sanjay Sawarkar (Junior Engineer)",
+        "Shri. Rohit Charpe (Junior Engineer)",
+        "Shri. Sudarshan Hingane (Architectural Engineering Assistant)",
+        "Shri. Jaysing Pawar (Senior Assistant)",
+        "Shri. Vinod Bhoge (Computer Operator)",
+        "Shri. Nishant Yevle (Architect)",
       ],
-      description: "Coordination and guidance with Gram Panchayats for effective local governance. Works with village councils under Rajura jurisdiction to implement rural development programs.",
+      description: "Oversees construction projects, infrastructure development, and maintenance of government buildings. Manages rural road construction, public building projects, and water conservation infrastructure in Rajura region.",
     },
     {
       id: 5,
-      name: "Social Welfare Department",
+      name: "Education Department",
       image: "images/card5.jpg",
       officers: [
-        "Social Welfare Officer",
-        "Supervisor",
-        "Senior Assistant",
-        "Scheduled Caste/Tribe welfare",
-        "Women and child welfare",
-        "Schemes for disabled persons",
-        "Social security pensions"
+        "Shri. Chandrakant Deshmukh (Agriculture Officer)",
+        "Smt. Geetanjali Nandurkar (Agriculture Officer)",
+        "Shri. Padmakar Balapure (Extension Officer Agriculture)",
+        "Smt. Kirti Bondre (Extension Officer Agriculture)",
       ],
-      description: "Welfare schemes for marginalized communities including SC/ST, women and children. Implements various social security and empowerment programs in Rajura region.",
+      description: "Implements educational schemes and programs for rural development and skill enhancement. Monitors school infrastructure, manages mid-day meal schemes, and promotes literacy programs in Rajura villages.",
     },
     {
       id: 6,
-      name: "Health Department",
+      name: "Agriculture Department",
       image: "images/card6.jpg",
       officers: [
-        "Health Supervisor",
-        "Extension Officer Health",
-        "Medical Officer",
-        "Primary Health Centers management",
-        "Immunization programs",
-        "Health camp organization",
-        "Birth-death registration"
+        "Shri. Chandrakant Deshmukh (Agriculture Officer)",
+        "Smt. Geetanjali Nandurkar (Agriculture Officer)",
+        "Shri. Padmakar Balapure (Extension Officer Agriculture)",
+        "Smt. Kirti Bondre (Extension Officer Agriculture)",
       ],
-      description: "Management of rural health services including primary healthcare and immunization programs. Organizes health camps and manages PHCs in Rajura area.",
+      description: "Promotes agricultural development, provides technical guidance to farmers, and implements farming schemes. Distributes seeds, fertilizers, and supports modern agricultural practices among Rajura farmers.",
     },
     {
       id: 7,
-      name: "Agriculture Department",
+      name: "Women and Child Welfare Department",
       image: "images/card7.jpg",
       officers: [
-        "Agriculture Officer",
-        "Extension Officer Agriculture",
-        "Technical Assistant Agriculture",
-        "Agricultural scheme implementation",
-        "Technical guidance to farmers",
-        "Seeds, fertilizers distribution",
-        "Agricultural exhibitions"
+        "Shri. Kishor Khedkar (WCD Project Officer)",
+        "Smt. Saroj Bhad (Senior Assistant)",
+        "Smt. Preeti Mankar (Supervisor)",
+        "Smt. Ashwini Uike (Supervisor)",
+        "Smt. Ujwala Varthi (Supervisor)",
+        "Smt. Smita Lehkar (Supervisor)",
       ],
-      description: "Agricultural development and farmer welfare through various schemes and technical guidance. Supports farmers in Rajura with modern farming techniques and resources.",
+      description: "Works for the welfare and empowerment of women and children through various government schemes. Implements programs for maternal health, child nutrition, and women's self-help groups in Rajura area.",
     },
     {
       id: 8,
-      name: "Construction Department",
+      name: "MGNREGA Scheme",
       image: "images/card8.jpg",
       officers: [
-        "Junior Engineer",
-        "Architectural Engineering Assistant",
-        "Senior Assistant",
-         "Roads and bridges construction",
-        "Public building construction",
-        "Water conservation projects",
-        "Construction quality inspection"
+        "Shri. Nitesh Harode (Asst. Program Officer)",
+        "Shri. Ravi Bhagat (Computer Operator)",
+        "Shri. Nandkishor Ramteke (Technical Assistant Architecture)",
+        "Shri. Dinesh Kamdi (Technical Assistant Agriculture)",
+        "Shri. Mayur Gharad (Technical Assistant Architecture)",
       ],
-      description: "Infrastructure development including roads, buildings and water conservation projects. Oversees construction and maintenance work in Rajura Panchayat Samiti area.",
+      description: "Implements Mahatma Gandhi National Rural Employment Guarantee Act for rural employment generation. Provides guaranteed employment and creates durable community assets in Rajura Panchayat Samiti region.",
     },
     {
       id: 9,
-      name: "Animal Husbandry Department",
+      name: "Rural Governance Abhiyan",
       image: "images/card9.jpg",
       officers: [
-        "Veterinary Doctor",
-        "Liveestock Supervisor",
-        "Technical Assistant",
-        "Veterinary services",
-        "Livestock development schemes",
-        "Artificial insemination centers",
-        "Livestock exhibitions"
+        "Shri. Sandesh Lamsonge (Taluka Campaign Manager)",
+        "Shri. Roshan Lakhkadar (Taluka Manager)",
+        "Shri. Yuvaraj Padole (Division Coordinator)",
+        "Shri. Ankush Shukla (Division Coordinator)",
+        "Smt. Suvarnalata Divte (Division Coordinator)",
       ],
-      description: "Livestock development and healthcare services for animals in rural areas. Provides veterinary care and promotes animal husbandry in Rajura villages.",
+      description: "Coordinates rural governance initiatives and ensures effective implementation of development programs. Works on capacity building and training for local governance institutions in Rajura.",
     },
     {
       id: 10,
-      name: "Gharkul Department",
+      name: "Animal Husbandry Department",
       image: "images/card10.jpg",
       officers: [
-        "Housing Officer",
-        "Technical Assistant",
-        "Junior Engineer",
-        "Gharkul scheme implementation",
-        "House construction grants",
-        "House inspection and approval",
-        "List preparation and verification"
+        "Shri. Dr. Kishor Bhadane",
+        "Smt. Saroj Bhad (Senior Assistant)",
+        "Smt. Preeti Mankar (Supervisor)",
+        "Smt. Ashwini Uike (Supervisor)",
+        "Smt. Ujwala Varthi (Supervisor)",
+        "Smt. Smita Lehkar (Supervisor)",
       ],
-      description: "Implementation of housing schemes for eligible beneficiaries in rural areas. Manages Gharkul scheme for SC, ST, VJNT and OBC communities in Rajura.",
+      description: "Promotes animal husbandry practices and provides veterinary services to rural communities. Supports dairy farming, livestock development, and animal healthcare services in Rajura villages.",
     },
     {
       id: 11,
-      name: "Water Sanitation Mission",
+      name: "Swachh Bharat Mission",
       image: "images/card11.jpg",
       officers: [
-        "Taluka Coordinator",
-        "Technical Assistant",
-        "Field Supervisor",
-        "Swachh Bharat Mission implementation",
-        "Toilet construction",
-        "Water supply schemes",
-        "Sanitation awareness programs"
+        "Shri. Muneshkumar Dupare (Taluka Coordinator)",
+        "Shri. Pranay Gajbhiye (Architect)",
       ],
-      description: "Cleanliness and water supply management under Swachh Bharat Mission. Implements Jal Jeevan Mission for tap water connections in Rajura rural areas.",
-    },
-    {
-      id: 12,
-      name: "MGNREGA Cell",
-      image: "images/card10.jpg",
-      officers: [
-        "Assistant Program Officer",
-        "Technical Assistant",
-        "Computer Operator",
-        "MGNREGA scheme implementation",
-        "Job card distribution",
-        "Guaranteed work days",
-        "Project planning and execution"
-      ],
-      description: "Rural employment generation through Mahatma Gandhi National Rural Employment Guarantee Act. Creates durable assets and provides employment in Rajura region.",
-    },
-    {
-      id: 13,
-      name: "PESA Cell",
-      image: "images/card10.jpg",
-      officers: [
-        "Tribal Development Officer",
-        "Field Coordinator",
-        "Social Worker",
-        "PESA Act implementation",
-        "Tribal community development",
-        "Forest Rights Committee work",
-        "Traditional resources protection"
-      ],
-      description: "Welfare and development of tribal communities under PESA Act provisions. Empowers Gram Sabhas in scheduled areas of Rajura for self-governance.",
+      description: "Implements Swachh Bharat Mission for cleanliness and sanitation in rural areas. Works on toilet construction, waste management, and sanitation awareness programs in Rajura region.",
     },
   ];
 
@@ -217,209 +166,160 @@ export function TalentsGallery() {
   const talentsMr = [
     {
       id: 1,
-      name: "सामान्य प्रशासन विभाग",
+      name: "आस्थापना विभाग",
       image: "images/card1.jpg",
       officers: [
-        "विकास खंड अधिकारी (BDO)",
-        "सहाय्यक प्रशासन अधिकारी",
-        "कनिष्ठ प्रशासन अधिकारी",
-        "विस्तार अधिकारी आरोग्य",
-        "विस्तार अधिकारी सांखिकी",
-        "कर्मचाऱ्यांची नियुक्ती, बदली, प्रशिक्षण",
-        "सर्व विभागांचे समन्वयन",
-        "नोंदणी आणि अहवाल तयार करणे",
-        "बैठकांचे आयोजन आणि कार्यवाही"
+        "श्री. चंद्रहास पाटील (सहा. प्रशासन अधिकारी)",
+        "श्री. अनिलकुमार मडावी (कनिष्ठ प्रशासन अधिकारी)",
+        "श्री. जितेंद्र अनकर (विस्तार अधि. आरोग्य)",
+        "श्री. संजय ठाकुर (विस्तार अधि. सांखिकी)",
+        "श्री. अमोल ईडपाची (वरी. सहाय्यक)",
+        "श्री. अभय मदनकर (कनिष्ठ सहाय्यक)",
+        "श्री. सचिन चव्हाण (कनिष्ठ सहाय्यक)",
+        "श्रीमती. राजश्री हेमके (कनिष्ठ सहाय्यक)",
+        "श्री. भुषण चावरिया (कनिष्ठ सहाय्यक)",
+        "श्री. विजय सहारे (परिचर)",
+        "श्रीमती. अल्का वरखडे (परिचर)",
       ],
-      description: "संपूर्ण पंचायत समितीचे प्रशासकीय व्यवस्थापन, कर्मचाऱ्यांचे नियंत्रण, कार्यालयीन कामकाजाचे संचालन. राजुरा मधील पंचायत समिती कार्यालयाच्या सुरळीत कार्यासाठी सर्व विभागांचे समन्वयन करण्यासाठी जबाबदार.",
+      description: "पंचायत समिती कार्यालयाच्या एकूण प्रशासन आणि व्यवस्थापनासाठी जबाबदार आणि कर्मचाऱ्यांचे समन्वयन करते. अधिकृत पत्रव्यवहार, नोंदवहन हाताळते आणि राजुरा पंचायत समितीतील सर्व विभागांचे सुरळीत कार्य सुनिश्चित करते.",
     },
     {
       id: 2,
-      name: "शिक्षण विभाग",
+      name: "लेखा विभाग",
       image: "images/card2.jpg",
       officers: [
-        "शिक्षण समन्वयक",
-        "शाळा पर्यवेक्षक",
-        "विस्तार अधिकारी शिक्षण",
-        "प्राथमिक आणि माध्यमिक शिक्षण योजना",
-        "शाळा पायाभूत सुविधांची देखरेख",
-        "शिक्षक प्रशिक्षण कार्यक्रम",
-        "विद्यार्थ्यांसाठी शिष्यवृत्ती योजना"
+        "श्री. विजय राठोड (सहा. लेखा अधिकारी)",
+        "श्रीमती. सोनाली दुधमोगरे (कनिष्ठ लेखा अधिकारी)",
+        "श्री. श्रीकांत तुंगीडवार (वरी. सहाय्यक)",
+        "श्री. चंद्रशेखर पदम (कनिष्ठ सहाय्यक)",
       ],
-      description: "ग्रामीण भागातील शैक्षणिक कार्यक्रमांची अंमलबजावणी आणि शाळा पायाभूत सुविधांची देखरेख. मिड-डे मील योजना, विद्यार्थ्यांची नोंदणी आणि राजुरा गावांमधील शैक्षणिक विकास व्यवस्थापित करते.",
+      description: "सर्व पंचायत समिती क्रियाकलापांसाठी आर्थिक व्यवहार, अर्थसंकल्प आणि लेखा कार्यसंचालन व्यवस्थापित करते. राजुरा पंचायत समितीच्या वित्तासाठी निधी वाटप, आर्थिक अहवाल तयार करणे आणि अंतर्गत लेखापरीक्षणासाठी जबाबदार.",
     },
     {
       id: 3,
-      name: "लेखा विभाग",
+      name: "पंचायत विभाग",
       image: "images/card3.jpg",
       officers: [
-        "वित्त अधिकारी",
-        "सहाय्यक लेखा अधिकारी",
-        "कनिष्ठ लेखा अधिकारी",
-        "वरिष्ठ सहाय्यक",
-        "वार्षिक अर्थसंकल्प तयार करणे",
-        "निधीचे वाटप आणि हिशोब",
-        "आर्थिक अहवाल तयार करणे",
-        "लेखापरीक्षण आणि तपासणी"
+        "श्री. प्रभाकर वाघ (विस्तार अधि. पंचा)",
+        "श्री. यशवंत लिखार (विस्तार अधि. पंचा)",
+        "श्री. प्रशांत मंडपे (वरिष्ठ सहाय्यक)",
+        "श्री. राजेंद्र भोंगळे (कनिष्ठ सहाय्यक)",
+        "श्री. दिनेश जीभे (कनिष्ठ सहाय्यक)",
+        "श्री. सौरभ पौनीकर (तालुका व्यवस्थापक ASSK)",
+        "श्री. सुमेधकुमार गजभिये (तालुका व्यवस्थापक RGSA)",
+        "श्री. अजय गजभिये (सहा. लेखा)",
+        "श्री. अभय वासनिक (तांत्रिक सहाय्यक)",
       ],
-      description: "पंचायत समितीचे आर्थिक व्यवस्थापन यासह अर्थसंकल्प, निधी वाटप आणि लेखा. राजुरा पंचायत समिती क्रियाकलापांसाठी सर्व आर्थिक व्यवहार हाताळते आणि नोंदी राखते.",
+      description: "ग्रामपंचायतींशी समन्वय साधते आणि विविध ग्रामीण विकास कार्यक्रम आणि योजना अंमलात आणते. प्रभावी स्थानिक शासनासाठी राजुरा अधिकारक्षेत्रातील ग्रामपंचायतींना मार्गदर्शन आणि प्रशिक्षण प्रदान करते.",
     },
     {
       id: 4,
-      name: "पंचायत विभाग",
+      name: "बांधकाम विभाग",
       image: "images/card4.jpg",
       officers: [
-        "विस्तार अधिकारी पंचायत",
-        "वरिष्ठ सहाय्यक",
-        "कनिष्ठ सहाय्यक",
-        "तालुका व्यवस्थापक",
-        "ग्रामपंचायतींचे कामकाज तपासणे",
-        "पंचायती राज व्यवस्थेची अंमलबजावणी",
-        "ग्रामसभा आणि समिती बैठका",
-        "स्थानिक स्वराज्य संस्था प्रशिक्षण"
+        "श्री. संजय सावरकर (कनिष्ठ अभियंता)",
+        "श्री. रोहित चरपे (कनिष्ठ अभियंता)",
+        "श्री. सुदर्शन हिंगणे (स्थापत्य अभियांत्रिकी सहा.)",
+        "श्री. जयसिंग पवार (वरिष्ठ सहाय्यक)",
+        "श्री. विनोद भोगे (संगणक परी.)",
+        "श्री. निशांत येवले (स्थापत्य)",
       ],
-      description: "ग्रामपंचायतींशी प्रभावी स्थानिक शासनासाठी समन्वय आणि मार्गदर्शन. राजुरा अधिकारक्षेत्रातील ग्रामपंचायतींसोबत ग्रामीण विकास कार्यक्रम अंमलात आणण्यासाठी कार्य करते.",
+      description: "बांधकाम प्रकल्प, पायाभूत सुविधा विकास आणि सरकारी इमारतींच्या देखभालीवर देखरेख करते. राजुरा क्षेत्रातील ग्रामीण रस्ते बांधकाम, सार्वजनिक इमारत प्रकल्प आणि जलसंधारण पायाभूत सुविधा व्यवस्थापित करते.",
     },
     {
       id: 5,
-      name: "समाजकल्याण विभाग",
+      name: "शिक्षण विभाग",
       image: "images/card5.jpg",
       officers: [
-        "समाज कल्याण अधिकारी",
-        "पर्यवेक्षक",
-        "वरिष्ठ सहाय्यक",
-        "अनुसूचित जाती-जमाती कल्याण",
-        "महिला आणि बालकल्याण",
-        "विकलांग व्यक्तींसाठी योजना",
-        "सामाजिक सुरक्षा पेन्शन"
+        "श्री. चंद्रकांत देशमुख (कृषी अधिकारी)",
+        "श्रीमती गीतांजली नांदुरकर (कृषी अधिकारी)",
+        "श्री. पद्माकर बाळापुरे (विस्तार अधिकारी कृषी)",
+        "श्रीमती किर्ती बोंद्रे (विस्तार अधिकारी कृषी)",
       ],
-      description: "दुर्बल घटकांसाठी कल्याणकारी योजना यासह अनुसूचित जाती-जमाती, महिला आणि मुले. राजुरा क्षेत्रात विविध सामाजिक सुरक्षा आणि सक्षमीकरण कार्यक्रम अंमलात आणते.",
+      description: "ग्रामीण विकास आणि कौशल्य वर्धनासाठी शैक्षणिक योजना आणि कार्यक्रम अंमलात आणते. शाळा पायाभूत सुविधांचे निरीक्षण करते, मिड-डे मील योजना व्यवस्थापित करते आणि राजुरा गावांमध्ये साक्षरता कार्यक्रमांना प्रोत्साहन देते.",
     },
     {
       id: 6,
-      name: "आरोग्य विभाग",
+      name: "कृषी विभाग",
       image: "images/card6.jpg",
       officers: [
-        "आरोग्य पर्यवेक्षक",
-        "विस्तार अधिकारी आरोग्य",
-        "वैद्यकीय अधिकारी",
-         "प्राथमिक आरोग्य केंद्र व्यवस्थापन",
-        "लसीकरण कार्यक्रम",
-        "आरोग्य शिबिर आयोजन",
-        "जन्म-मृत्यू नोंदणी"
+        "श्री. चंद्रकांत देशमुख (कृषी अधिकारी)",
+        "श्रीमती गीतांजली नांदुरकर (कृषी अधिकारी)",
+        "श्री. पद्माकर बाळापुरे (विस्तार अधिकारी कृषी)",
+        "श्रीमती किर्ती बोंद्रे (विस्तार अधिकारी कृषी)",
       ],
-      description: "ग्रामीण आरोग्य सेवांचे व्यवस्थापन यासह प्राथमिक आरोग्यसेवा आणि लसीकरण कार्यक्रम. आरोग्य शिबिरे आयोजित करते आणि राजुरा क्षेत्रातील प्राथमिक आरोग्य केंद्रांचे व्यवस्थापन करते.",
+      description: "कृषी विकासाला प्रोत्साहन देते, शेतकऱ्यांना तांत्रिक मार्गदर्शन प्रदान करते आणि शेती योजना अंमलात आणते. राजुरा शेतकऱ्यांमध्ये बियाणे, खते वितरित करते आणि आधुनिक शेती पद्धतींना पाठिंबा देतो.",
     },
     {
       id: 7,
-      name: "कृषी विभाग",
+      name: "महिला व बालकल्याण विभाग",
       image: "images/card7.jpg",
       officers: [
-         "कृषी अधिकारी",
-        "विस्तार अधिकारी कृषी",
-        "तांत्रिक सहाय्यक कृषी",
-        "कृषी योजना अंमलबजावणी",
-        "शेतकऱ्यांना तांत्रिक मार्गदर्शन",
-        "बियाणे, खते वितरण",
-        "कृषी प्रदर्शने आयोजित करणे"
+        "श्री. किशोर खेडकर (म.बा.वि. प्रकल्प अधिकारी)",
+        "श्रीमती. सरोज भड (वरी. सहाय्यक)",
+        "श्रीमती. प्रीती मानकर (पर्यवेक्षिका)",
+        "श्रीमती. अश्वनी उईके (पर्यवेक्षिका)",
+        "श्रीमती. उज्वला वरठी (पर्यवेक्षिका)",
+        "श्रीमती. स्मिता लेहकर (पर्यवेक्षिका)",
       ],
-      description: "विविध योजना आणि तांत्रिक मार्गदर्शनाद्वारे कृषी विकास आणि शेतकरी कल्याण. राजुरा मधील शेतकऱ्यांना आधुनिक शेती तंत्रज्ञान आणि संसाधनांसह पाठिंबा देतो.",
+      description: "विविध सरकारी योजनांद्वारे महिला आणि मुलांच्या कल्याण आणि सक्षमीकरणासाठी काम करते. राजुरा क्षेत्रात मातृ आरोग्य, बाल पोषण आणि महिला स्वयंसहाय्य गटांसाठी कार्यक्रम अंमलात आणते.",
     },
     {
       id: 8,
-      name: "बांधकाम विभाग",
+      name: "म.गां.रो.हमी योजना",
       image: "images/card8.jpg",
       officers: [
-        "कनिष्ठ अभियंता",
-        "स्थापत्य अभियांत्रिकी सहाय्यक",
-        "वरिष्ठ सहाय्यक",
-         "रस्ते आणि पूल बांधकाम",
-        "सार्वजनिक इमारत बांधकाम",
-        "जलसंधारण प्रकल्प",
-        "बांधकाम दर्जा तपासणी"
+        "श्री. नितेश हारोडे (सहा. कार्यक्रम अधिकारी)",
+        "श्री. रवी भगत (संगणक परिचालक)",
+        "श्री. नंदकिशोर रामटेके (तांत्रिक सहा. स्थापत्य)",
+        "श्री. दिनेश कामडी (तांत्रिक सहा. कृषी)",
+        "श्री. मयूर घारड (तांत्रिक सहा. स्थापत्य)",
       ],
-      description: "रस्ते, इमारती आणि जलसंधारण प्रकल्प यासह पायाभूत सुविधा विकास. राजुरा पंचायत समिती क्षेत्रातील बांधकाम आणि देखभाल कामावर देखरेख करते.",
+      description: "ग्रामीण रोजगार निर्मितीसाठी महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार हमी कायदा अंमलात आणते. राजुरा पंचायत समिती क्षेत्रात हमी रोजगार प्रदान करते आणि टिकाऊ समुदाय मालमत्ता निर्माण करते.",
     },
     {
       id: 9,
-      name: "पशुसंवर्धन विभाग",
+      name: "म.रा.ग्रा.जि. अभियान",
       image: "images/card9.jpg",
       officers: [
-       "पशुवैद्यकीय डॉक्टर",
-        "पशुधन पर्यवेक्षक",
-        "तांत्रिक सहाय्यक",
-        "पशुवैद्यकीय सेवा",
-        "पशुधन विकास योजना",
-        "कृत्रिम गर्भधारणा केंद्रे",
-        "पशुधन प्रदर्शने"
+        "श्री. संदेश लामसोंगे (तालुका अभियान व्यवस्थापक)",
+        "श्री. रोषण लखकडर (तालुका व्यवस्थापक)",
+        "श्री. युवराज पडोले (प्रभाग समन्वयक)",
+        "श्री. अंकुश शुक्ला (प्रभाग समन्वयक)",
+        "श्रीमती. सुवर्णलता दिवटे (प्रभाग समन्वयक)",
       ],
-      description: "ग्रामीण भागातील प्राण्यांसाठी पशुधन विकास आणि आरोग्य सेवा. राजुरा गावांमध्ये पशुवैद्यकीय सेवा पुरवते आणि पशुसंवर्धनाला प्रोत्साहन देते.",
+      description: "ग्रामीण शासन उपक्रमांचे समन्वयन करते आणि विकास कार्यक्रमांची प्रभावी अंमलबजावणी सुनिश्चित करते. राजुरा मधील स्थानिक शासन संस्थांसाठी क्षमता निर्माण आणि प्रशिक्षणावर कार्य करते.",
     },
     {
       id: 10,
-      name: "घरकुल विभाग",
+      name: "पशुसंवर्धन विभाग",
       image: "images/card10.jpg",
       officers: [
-         "गृहनिर्माण अधिकारी",
-        "तांत्रिक सहाय्यक",
-        "कनिष्ठ अभियंता",
-        "घरकुल योजना अंमलबजावणी",
-        "घरबांधणी अनुदान",
-        "घरांची तपासणी आणि मंजुरी",
-        "यादी तयार करणे आणि पडताळणी"
+        "श्री. डॉ. किशोर भदाणे",
+        "श्रीमती. सरोज भड (वरी. सहाय्यक)",
+        "श्रीमती. प्रीती मानकर (पर्यवेक्षिका)",
+        "श्रीमती. अश्वनी उईके (पर्यवेक्षिका)",
+        "श्रीमती. उज्वला वरठी (पर्यवेक्षिका)",
+        "श्रीमती. स्मिता लेहकर (पर्यवेक्षिका)",
       ],
-      description: "ग्रामीण भागातील पात्र लाभार्थ्यांसाठी गृहनिर्माण योजनांची अंमलबजावणी. राजुरा मधील एससी, एसटी, व्हीजेएनटी आणि मागासवर्गीय समुदायांसाठी घरकुल योजना व्यवस्थापित करते.",
+      description: "पशुसंवर्धन पद्धतींना प्रोत्साहन देते आणि ग्रामीण समुदायांना पशुवैद्यकीय सेवा पुरवते. राजुरा गावांमध्ये दुग्धव्यवसाय, पशुधन विकास आणि प्राणी आरोग्य सेवांना पाठिंबा देतो.",
     },
     {
       id: 11,
-      name: "पाणी स्वच्छता मिशन",
+      name: "स्वच्छ भारत मिशन",
       image: "images/card11.jpg",
       officers: [
-        "तालुका समन्वयक",
-        "तांत्रिक सहाय्यक",
-        "क्षेत्र पर्यवेक्षक",
-        "स्वच्छ भारत मिशन अंमलबजावणी",
-        "शौचालय बांधकाम",
-        "पाणीपुरवठा योजना",
-        "स्वच्छता जागरूकता कार्यक्रम"
+        "श्री. मुनेशकुमार दुपारे (तालुका समन्वयक)",
+        "श्री. प्रणय गजभिये (स्थापत्य)",
       ],
-      description: "स्वच्छ भारत मिशन अंतर्गत स्वच्छता आणि पाणीपुरवठा व्यवस्थापन. राजुरा ग्रामीण भागात नळाचे पाणी जोडणीसाठी जल जीवन मिशन अंमलात आणते.",
-    },
-    {
-      id: 12,
-      name: "मनरेगा कक्ष",
-      image: "images/card11.jpg",
-      officers: [
-        "सहाय्यक कार्यक्रम अधिकारी",
-        "तांत्रिक सहाय्यक",
-        "संगणक परिचालक",
-        "मनरेगा योजना अंमलबजावणी",
-        "जॉब कार्ड वितरण",
-        "हमी कामाचे दिवस",
-        "प्रकल्प नियोजन आणि अंमलबजावणी"
-      ],
-      description: "महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार हमी कायद्याद्वारे ग्रामीण रोजगार निर्मिती. राजुरा क्षेत्रात टिकाऊ मालमत्ता निर्माण करते आणि रोजगार पुरवते.",
-    },
-    {
-      id: 13,
-      name: "पेसा कक्ष",
-      image: "images/card11.jpg",
-      officers: [
-        "आदिवासी विकास अधिकारी",
-        "क्षेत्र समन्वयक",
-        "सामाजिक कार्यकर्ता",
-        "पेसा कायदा अंमलबजावणी",
-        "आदिवासी समुदाय विकास",
-        "वन हक्क समिती कार्य",
-        "परंपरागत संसाधने संरक्षण"
-      ],
-      description: "पेसा कायद्याच्या तरतुदींनुसार आदिवासी समुदायांचे कल्याण आणि विकास. राजुरा च्या अनुसूचित भागातील ग्रामसभांना स्वयंशासनासाठी सक्षम करते.",
+      description: "ग्रामीण भागात स्वच्छता आणि स्वच्छतासाठी स्वच्छ भारत मिशन अंमलात आणते. राजुरा क्षेत्रात शौचालय बांधकाम, कचरा व्यवस्थापन आणि स्वच्छता जागरूकता कार्यक्रमांवर कार्य करते.",
     },
   ];
 
   // Select the appropriate data based on current language
   const talents = language === 'mr' ? talentsMr : talentsEn;
 
-  const cardsPerSlide = 9;
+  const cardsPerSlide = 6;
   const totalSlides = Math.ceil(talents.length / cardsPerSlide);
 
   const nextSlide = () => {
@@ -457,22 +357,6 @@ export function TalentsGallery() {
     setCurrentSlide(index);
   };
 
-  const openTalentModal = (talent) => {
-    setSelectedTalent(talent);
-    setIsModalOpen(true);
-  };
-
-  const closeTalentModal = () => {
-    setIsModalOpen(false);
-    setSelectedTalent(null);
-  };
-
-  // Function to truncate long text
-  const truncateText = (text, maxLength) => {
-    if (!text || text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
-  };
-
   return (
     <div className="container mx-auto px-4">
       {/* Section Header */}
@@ -493,7 +377,7 @@ export function TalentsGallery() {
           {totalSlides > 1 && (
             <button
               onClick={prevSlide}
-              style={{ marginTop: "850px" }}
+              style={{ marginTop: "650px" }}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 bg-white rounded-full p-4 shadow-2xl hover:bg-orange-50 border-2 border-gray-300 hover:border-orange-500 transition-all duration-300"
               aria-label={language === 'mr' ? 'मागील स्लाइड' : 'Previous slide'}
             >
@@ -504,17 +388,17 @@ export function TalentsGallery() {
           {/* Cards */}
           {getVisibleTalents().map((talent, index) => (
             talent.isEmpty ? (
-              // Empty placeholder card
+              // Empty placeholder card - make it the same height but invisible
               <div key={talent.id} className="opacity-0 pointer-events-none">
-                <Card className="rounded-xl shadow-md border p-0 overflow-hidden bg-white h-[400px]" />
+                <Card className="rounded-xl shadow-md border p-0 overflow-hidden bg-white h-[650px]" />
               </div>
             ) : (
               <Card
                 key={talent.id}
-                className="rounded-xl shadow-md border p-0 overflow-hidden bg-white hover:shadow-xl transition-all duration-300 group flex flex-col h-[480px]"
+                className="rounded-xl shadow-md border p-0 overflow-hidden bg-white hover:shadow-xl transition-all duration-300 group flex flex-col h-[650px]"
               >
-                <div className="w-full flex items-center justify-center py-4">
-                  <div className="w-48 h-48 flex items-center justify-center">
+                <div className="w-full flex items-center justify-center py-6">
+                  <div className="w-40 h-40 flex items-center justify-center">
                     <ImageWithFallback
                       src={talent.image}
                       alt={talent.name}
@@ -524,40 +408,35 @@ export function TalentsGallery() {
                   </div>
                 </div>
 
-                <h3 className="text-center text-xl font-semibold text-gray-900 py-4 border-b">
+                <h3 className="text-center text-xl font-semibold text-gray-900 py-4 border-b px-6">
                   {talent.name}
                 </h3>
 
                 <div className="p-6 flex flex-col flex-grow">
-                  {/* Description with Read More */}
-                  <div className="mb-4 flex-grow">
+                  {/* Full Description */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-800 mb-3 text-sm">
+                      {language === 'mr' ? 'विभागाचे वर्णन' : 'Department Description'}
+                    </h4>
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      {truncateText(talent.description, 100)}
+                      {talent.description}
                     </p>
-                    {/* Always show Read More button for all cards */}
-                    <button
-                      onClick={() => openTalentModal(talent)}
-                      className="text-orange-600 hover:text-orange-800 text-sm font-medium mt-2 inline-flex items-center gap-1"
-                    >
-                      {language === 'mr' ? 'अधिक वाचा' : 'Read More'}
-                      <Info className="w-3 h-3" />
-                    </button>
                   </div>
 
-                  {/* Officers List */}
-                  <ul className="text-gray-800 text-sm space-y-1 flex-grow">
-                    {talent.officers?.slice(0, 3).map((officer, idx) => (
-                      <li key={idx} className="flex items-start gap-6">
-                        <span className="text-green-600 text-lg">›</span>
-                        <span className="flex-1 text-xs">{officer}</span>
-                      </li>
-                    ))}
-                    {talent.officers && talent.officers.length > 3 && (
-                      <li className="text-orange-600 text-xs font-medium mt-2">
-                        + {talent.officers.length - 3} {language === 'mr' ? 'अधिक' : 'more'}...
-                      </li>
-                    )}
-                  </ul>
+                  {/* Officers List - Show ALL officers */}
+                  <div className="border-t pt-4 flex-grow">
+                    <h4 className="font-semibold text-gray-800 mb-3 text-sm">
+                      {language === 'mr' ? 'कर्मचारी' : 'Staff Members'}
+                    </h4>
+                    <ul className="text-gray-700 text-sm space-y-2 max-h-48 overflow-y-auto">
+                      {talent.officers?.map((officer, idx) => (
+                        <li key={idx} className="flex items-start gap-2 py-1">
+                          <span className="text-green-600 text-lg flex-shrink-0 mt-0.5">›</span>
+                          <span className="flex-1 text-xs leading-tight">{officer}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </Card>
             )
@@ -567,7 +446,7 @@ export function TalentsGallery() {
           {totalSlides > 1 && (
             <button
               onClick={nextSlide}
-              style={{ marginTop: "850px" }}
+              style={{ marginTop: "650px" }}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 bg-white rounded-full p-4 shadow-2xl hover:bg-orange-50 border-2 border-gray-300 hover:border-orange-500 transition-all duration-300"
               aria-label={language === 'mr' ? 'पुढील स्लाइड' : 'Next slide'}
             >
@@ -594,84 +473,6 @@ export function TalentsGallery() {
           </div>
         )}
       </div>
-
-      {/* Talent Detail Modal */}
-      {isModalOpen && selectedTalent && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            {/* Modal Header */}
-            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    {selectedTalent.name}
-                  </h3>
-                </div>
-                <button
-                  onClick={closeTalentModal}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
-                >
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* Modal Content */}
-            <div className="p-6">
-              <div className="flex flex-col md:flex-row gap-6 mb-6">
-                <div className="flex-shrink-0">
-                  <div className="w-32 h-32 rounded-lg overflow-hidden bg-gradient-to-br from-orange-500 to-orange-700">
-                    <ImageWithFallback
-                      src={selectedTalent.image}
-                      alt={selectedTalent.name}
-                      className="w-full h-full object-cover"
-                      fallbackSrc="images/default.png"
-                    />
-                  </div>
-                </div>
-                <div className="flex-grow">
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">
-                      {language === 'mr' ? 'विभागाचे वर्णन' : 'Department Description'}
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {selectedTalent.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-t pt-6">
-                <h4 className="font-semibold text-gray-900 mb-4">
-                  {language === 'mr' ? 'कर्मचारी तपशील' : 'Staff Details'}
-                </h4>
-                <ul className="space-y-2">
-                  {selectedTalent.officers?.map((officer, idx) => (
-                    <li key={idx} className="flex items-start gap-3 py-2 border-b border-gray-100 last:border-b-0">
-                      <span className="text-green-600 text-lg mt-0.5">›</span>
-                      <span className="text-gray-700">{officer}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="sticky bottom-0 bg-white border-t border-gray-200 p-6 rounded-b-2xl">
-              <div className="flex justify-end">
-                <button
-                  onClick={closeTalentModal}
-                  className="px-6 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors duration-200 font-medium"
-                >
-                  {language === 'mr' ? 'बंद करा' : 'Close'}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Nominate Section */}
       <div className="mt-12 text-center">
